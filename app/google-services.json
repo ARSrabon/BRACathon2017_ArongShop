@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "158283470415",
+    "firebase_url": "https://bracathon2017demoproject.firebaseio.com",
+    "project_id": "bracathon2017demoproject",
+    "storage_bucket": "bracathon2017demoproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:158283470415:android:46b1e81ea785a932",
+        "android_client_info": {
+          "package_name": "io.github.arsrabon.m.bracathon2017_arongshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "158283470415-vm07p90m8g6m552h2lvpvk34q4j9no05.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCf7XqG7uOlxvRCmCppSGeemidmHLmocBI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

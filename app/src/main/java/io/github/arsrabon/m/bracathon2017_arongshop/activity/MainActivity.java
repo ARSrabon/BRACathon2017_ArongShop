@@ -11,18 +11,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
-import com.mikepenz.iconics.typeface.IIcon;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
-import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,21 +54,20 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
 //        textView = (TextView) findViewById(R.id.shopingCart);
 
         List<Product> products = new ArrayList<>();
-        products.add(new Product("Ghee","400g",499.00));
-        products.add(new Product("Ghee","900g",899.00));
+        products.add(new Product("Ghee", "400g", 499.00));
+        products.add(new Product("Ghee", "900g", 899.00));
 
         List<Product> products1 = new ArrayList<>();
-        products1.add(new Product("Borhani","250ml",30.00));
-        products1.add(new Product("Ghee","500ml",65.00));
-        products1.add(new Product("Ghee","1000ml",120.00));
-
+        products1.add(new Product("Borhani", "250ml", 30.00));
+        products1.add(new Product("Ghee", "500ml", 65.00));
+        products1.add(new Product("Ghee", "1000ml", 120.00));
 
 
         List<ProductGroup> productGroups = new ArrayList<>();
-        productGroups.add(new ProductGroup("Ghee","Made from full creamed milk.",products));
-        productGroups.add(new ProductGroup("Borhani","Made with sour curd,salt etc.",products1));
+        productGroups.add(new ProductGroup("Ghee", "Made from full creamed milk.", products));
+        productGroups.add(new ProductGroup("Borhani", "Made with sour curd,salt etc.", products1));
 
-        for (int i = 0; i < productGroups.size() ; i++) {
+        for (int i = 0; i < productGroups.size(); i++) {
             Log.d("ProductGroup", String.valueOf(productGroups.get(i).getProducts().size()));
         }
 
@@ -79,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
 
     }
 
-    public void setProductGroupsView(List<ProductGroup> productGroups){
+    public void setProductGroupsView(List<ProductGroup> productGroups) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         productGroupView.setLayoutManager(linearLayoutManager);
@@ -116,13 +112,13 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
 
         int id = item.getItemId();
         if (id == R.id.item_samplebadge) {
-            Intent intent = new Intent(MainActivity.this,ShopOrdersConfirmation_Activity.class);
+            Intent intent = new Intent(MainActivity.this, ShopOrdersConfirmation_Activity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
 
-    public void setNavDrawer(){
+    public void setNavDrawer() {
         headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 .withHeaderBackground(R.drawable.header)

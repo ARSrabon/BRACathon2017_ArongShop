@@ -9,6 +9,9 @@ import java.util.List;
 public class ShoppingCart {
     private List<ShoppingCartItem> cartItems;
 
+    public ShoppingCart() {
+    }
+
     public ShoppingCart(List<ShoppingCartItem> cartItems) {
         this.cartItems = cartItems;
     }

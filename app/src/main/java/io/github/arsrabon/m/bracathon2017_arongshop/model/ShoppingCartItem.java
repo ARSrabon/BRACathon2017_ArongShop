@@ -6,11 +6,19 @@ package io.github.arsrabon.m.bracathon2017_arongshop.model;
 
 public class ShoppingCartItem {
     private Product product;
+
     private int quantity;
+
     private double price;
+
     private double discount;
 
+    public ShoppingCartItem() {
+        super();
+    }
+
     public ShoppingCartItem(Product product, int quantity, double price, double discount) {
+        super();
         this.product = product;
         this.quantity = quantity;
         this.price = price;

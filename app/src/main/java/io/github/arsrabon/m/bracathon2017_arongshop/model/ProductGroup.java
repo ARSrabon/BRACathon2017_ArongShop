@@ -1,17 +1,28 @@
 package io.github.arsrabon.m.bracathon2017_arongshop.model;
 
+import com.activeandroid.Model;
+import com.activeandroid.annotation.Column;
+import com.activeandroid.annotation.Table;
+
 import java.util.List;
 
 /**
  * Created by msrabon on 2/13/17.
  */
 
-public class ProductGroup {
+public class ProductGroup{
     private String name;
+
     private String info;
+
     private List<Product> products;
 
+    public ProductGroup() {
+        super();
+    }
+
     public ProductGroup(String name, String info, List<Product> products) {
+        super();
         this.name = name;
         this.info = info;
         this.products = products;

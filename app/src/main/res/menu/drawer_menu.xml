@@ -27,5 +27,8 @@
     <item
         android:id="@+id/menu_emegencyContact"
         android:title="Emergency Contact" />
+    <item
+        android:id="@+id/menu_logout"
+        android:title="Log Out"/>
 
 </menu>
