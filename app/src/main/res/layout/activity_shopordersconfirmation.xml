@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shopordersconfirmation"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context="io.github.arsrabon.m.bracathon2017_arongshop.activity.MainActivity">
+    tools:context="io.github.arsrabon.m.bracathon2017_arongshop.activity.ShopOrdersConfirmation_Activity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/md_blue_900"
+        android:background="@color/md_blue_800"
         android:weightSum="1"
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -27,13 +26,8 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_weight="7"
-                android:src="@mipmap/aarong_logo_dark" />
+                android:src="@mipmap/aarong_logo" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/productGroupsView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-</LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_inbox"
+        android:title="Inbox" />
+    <item
+        android:id="@+id/menu_todaysOffer"
+        android:title="Offers Today" />
+    <item
+        android:id="@+id/menue_routemap"
+        android:title="Route Map" />
+    <item
+        android:id="@+id/menu_shoplist"
+        android:title="Shops List" />
+    <item
+        android:id="@+id/menue_todaysorder"
+        android:title="Orders Today" />
+    <item
+        android:id="@+id/menu_salehistory"
+        android:title="Sales History" />
+    <item
+        android:id="@+id/menu_registerNewShop"
+        android:title="Register New Shop" />
+    <item
+        android:id="@+id/menu_liquidCash"
+        android:title="Liquid Cash Management" />
+    <item
+        android:id="@+id/menu_emegencyContact"
+        android:title="Emergency Contact" />
+
+</menu>
