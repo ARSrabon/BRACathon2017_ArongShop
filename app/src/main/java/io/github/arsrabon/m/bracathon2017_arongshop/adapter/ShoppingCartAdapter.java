@@ -16,48 +16,49 @@ import java.util.List;
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
 import io.github.arsrabon.m.bracathon2017_arongshop.controller.ShoppingCartController;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ActionBarBadgeCountUpdater;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.Product;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ShoppingCartItem;
 
 /**
- * Created by msrabon on 2/13/17.
+ * Created by msrabon on 2/19/17.
  */
 
-public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductViewHolder> {
+public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapter.ShoppingCartViewHolder> {
 
-    private List<Product> productLists;
-    private Context context;
-    private Activity activity;
-
-    ActionBarBadgeCountUpdater countUpdater = ActionBarBadgeCountUpdater.getInstance();
+    List<ShoppingCartItem> cartItems;
+    Context context;
+    Activity activity;
 
     ShoppingCartController cartController = ShoppingCartController.getInstance();
+    private ActionBarBadgeCountUpdater countUpdater = ActionBarBadgeCountUpdater.getInstance();
 
-    public ProductAdapter(List<Product> productLists, Context context) {
-        this.productLists = productLists;
+    public ShoppingCartAdapter(Context context) {
         this.context = context;
         this.activity = (Activity) context;
+        cartItems = cartController.getShoppingCart().getCartItems();
     }
 
     @Override
-    public ProductViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_product_sku, parent, false);
-        ProductViewHolder viewHolder = new ProductViewHolder(v);
+    public ShoppingCartViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_confirmshoporder, parent, false);
+        ShoppingCartAdapter.ShoppingCartViewHolder viewHolder = new ShoppingCartViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final ProductViewHolder holder, final int position) {
-        final Product product = productLists.get(position);
-        int qty = new Integer(0);
-        final ShoppingCartItem item = new ShoppingCartItem(product, qty, 0);
-        holder.product_SKU.setText(product.getSku());
+    public void onBindViewHolder(final ShoppingCartViewHolder holder, int position) {
+        final ShoppingCartItem item = cartItems.get(position);
+
+        holder.productGroupName.setText(item.getProduct().getpName());
+        holder.productSKU.setText(item.getProduct().getSku());
+        holder.productPrice.setText(Double.toString(item.getPrice()));
+        holder.edit_productQuantity.setText(String.valueOf(item.getQuantity()));
+
         holder.btn_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int qty = 0;
-                if (!holder.productQuantity.getText().toString().equals("")) {
-                    qty = Integer.valueOf(holder.productQuantity.getText().toString());
+                if (!holder.edit_productQuantity.getText().toString().equals("")) {
+                    qty = Integer.valueOf(holder.edit_productQuantity.getText().toString());
                 }
                 qty++;
                 if (holder.pFlag) {
@@ -68,7 +69,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     cartController.getShoppingCart().addToCart(item);
                 }
                 cartController.getShoppingCart().getFromCart(item).setQuantity(qty);
-                holder.productQuantity.setText(String.valueOf(qty));
+                holder.edit_productQuantity.setText(String.valueOf(qty));
             }
         });
 
@@ -76,8 +77,8 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
             @Override
             public void onClick(View v) {
                 int qts;
-                if (!holder.productQuantity.getText().toString().equals("")) {
-                    qts = Integer.valueOf(holder.productQuantity.getText().toString());
+                if (!holder.edit_productQuantity.getText().toString().equals("")) {
+                    qts = Integer.valueOf(holder.edit_productQuantity.getText().toString());
                 } else {
                     qts = 0;
                 }
@@ -93,33 +94,39 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     cartController.getShoppingCart().removeFromCart(item);
                 }
                 cartController.getShoppingCart().getFromCart(item).setQuantity(qts);
-                holder.productQuantity.setText(String.valueOf(qts));
+                holder.edit_productQuantity.setText(String.valueOf(qts));
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return productLists.size();
+        return cartItems.size();
     }
 
-    public static class ProductViewHolder extends RecyclerView.ViewHolder {
-        CardView cv;
-        TextView product_SKU;
+    public static class ShoppingCartViewHolder extends RecyclerView.ViewHolder {
+
+        CardView cardView;
+        TextView productGroupName;
+        TextView productPrice;
+        TextView productSKU;
+        EditText edit_productQuantity;
+
         Button btn_add;
         Button btn_remove;
-        EditText productQuantity;
+        public boolean pFlag = true;
 
-        boolean pFlag = true;
-
-        public ProductViewHolder(View itemView) {
+        public ShoppingCartViewHolder(View itemView) {
             super(itemView);
-            cv = (CardView) itemView.findViewById(R.id.productsku_cardview);
-            product_SKU = (TextView) itemView.findViewById(R.id.lbl_productSKU);
+            cardView = (CardView) itemView.findViewById(R.id.cardview_ShopOrders);
+            productGroupName = (TextView) itemView.findViewById(R.id.lbl_productname);
+            productSKU = (TextView) itemView.findViewById(R.id.lbl_productSKU);
+            productPrice = (TextView) itemView.findViewById(R.id.lbl_productTotalPrice);
+
+            edit_productQuantity = (EditText) itemView.findViewById(R.id.edt_productQuantity);
+
             btn_add = (Button) itemView.findViewById(R.id.btn_addQuantity);
             btn_remove = (Button) itemView.findViewById(R.id.btn_remove_Quantity);
-            productQuantity = (EditText) itemView.findViewById(R.id.edt_productQuantity);
         }
     }
-
 }

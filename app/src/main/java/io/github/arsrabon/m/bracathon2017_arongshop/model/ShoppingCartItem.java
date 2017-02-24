@@ -17,11 +17,10 @@ public class ShoppingCartItem {
         super();
     }
 
-    public ShoppingCartItem(Product product, int quantity, double price, double discount) {
+    public ShoppingCartItem(Product product, int quantity, double discount) {
         super();
         this.product = product;
         this.quantity = quantity;
-        this.price = price;
         this.discount = discount;
     }
 

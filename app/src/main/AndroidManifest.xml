@@ -11,8 +11,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
             android:name=".activity.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.ShopOrdersConfirmation_Activity" />
 
         <meta-data
@@ -35,6 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.SalesToday_Activity" />
+        <activity android:name=".activity.ProcessProductOrder" />
+        <activity android:name=".activity.MenuActivity"></activity>
     </application>
 
 </manifest>

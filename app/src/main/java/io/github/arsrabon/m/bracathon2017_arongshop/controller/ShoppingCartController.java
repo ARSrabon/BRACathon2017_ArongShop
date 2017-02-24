@@ -11,7 +11,7 @@ import io.github.arsrabon.m.bracathon2017_arongshop.model.ShoppingCart;
 public class ShoppingCartController {
     private static ShoppingCartController ourInstance = new ShoppingCartController();
 
-    List<ShoppingCart> shoppingCarts = new ArrayList<>();
+    List<ShoppingCart> shopOrders = new ArrayList<>();
     private ShoppingCart shoppingCart;
 
     public static ShoppingCartController getInstance() {
@@ -25,14 +25,6 @@ public class ShoppingCartController {
         return shoppingCart;
     }
 
-    public List<ShoppingCart> getShoppingCarts() {
-        return shoppingCarts;
-    }
-
-    public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
-        this.shoppingCarts = shoppingCarts;
-    }
-
     public void newShoppingCart(){
         this.shoppingCart = new ShoppingCart();
     }
@@ -41,5 +33,9 @@ public class ShoppingCartController {
         if(shoppingCart != null){
             this.shoppingCart = null;
         }
+    }
+
+    public void addToShopOrders(){
+        shopOrders.add(this.shoppingCart);
     }
 }

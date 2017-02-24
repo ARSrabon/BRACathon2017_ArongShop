@@ -2,6 +2,7 @@ package io.github.arsrabon.m.bracathon2017_arongshop.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
+import io.github.arsrabon.m.bracathon2017_arongshop.activity.ProcessProductOrder;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ProductGroup;
 
 /**
@@ -51,30 +53,14 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
         final ProductGroup productGroup = productGroups.get(position);
         Log.d("onBindViewHolder", String.valueOf(productGroup.getProducts().size()));
         holder.productName.setText(productGroups.get(position).getName());
+        Log.d("onBindViewHolder ",productGroup.getName());
         holder.productInfo.setText(productGroups.get(position).getInfo());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.flag) {
-                    holder.showDirection.setImageResource(R.drawable.ic_arrow_upward_black_24dp);
-                    holder.skuView.setVisibility(View.VISIBLE);
-
-                    LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
-                    //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-                    holder.skuView.setLayoutManager(linearLayoutManager);
-
-                    try {
-                        ProductAdapter productAdapter = new ProductAdapter(productGroup.getProducts(), context);
-                        holder.skuView.setAdapter(productAdapter);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    holder.flag = false;
-                } else {
-                    holder.showDirection.setImageResource(R.drawable.ic_arrow_downward_black_24dp);
-                    holder.skuView.setVisibility(View.GONE);
-                    holder.flag = true;
-                }
+                Intent intent = new Intent(context, ProcessProductOrder.class);
+                intent.putExtra("ProductName",productGroup.getName().toString());
+                activity.startActivity(intent);
             }
         });
     }
@@ -91,9 +77,6 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
         TextView productInfo;
         ImageView product_view;
         ImageView showDirection;
-        RecyclerView skuView;
-
-        boolean flag = true;
 
         public ProductGroupViewHolder(View itemView) {
             super(itemView);
@@ -101,9 +84,6 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
             productName = (TextView) itemView.findViewById(R.id.lbl_productname);
             productInfo = (TextView) itemView.findViewById(R.id.lbl_productinfo);
             product_view = (ImageView) itemView.findViewById(R.id.img_product);
-            showDirection = (ImageView) itemView.findViewById(R.id.img_showdirection);
-            skuView = (RecyclerView) itemView.findViewById(R.id.showproducts);
-            skuView.setVisibility(View.GONE);
         }
     }
 }

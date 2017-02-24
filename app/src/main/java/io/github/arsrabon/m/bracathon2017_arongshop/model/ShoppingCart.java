@@ -1,5 +1,6 @@
 package io.github.arsrabon.m.bracathon2017_arongshop.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  */
 
 public class ShoppingCart {
-    private List<ShoppingCartItem> cartItems;
+    private List<ShoppingCartItem> cartItems = new ArrayList<>();
 
     public ShoppingCart() {
     }
@@ -30,5 +31,14 @@ public class ShoppingCart {
 
     public void removeFromCart(ShoppingCartItem cartItem) {
         cartItems.remove(cartItem);
+    }
+
+    public ShoppingCartItem getFromCart(ShoppingCartItem cartItem) {
+        for (int i = 0; i < cartItems.size(); i++) {
+            if (cartItems.get(i) == cartItem) {
+                return cartItems.get(i);
+            }
+        }
+        return null;
     }
 }
