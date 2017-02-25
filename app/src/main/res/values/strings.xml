@@ -6,4 +6,5 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="sample">WTF</string>
     <string name="title_activity_splash">SplashActivity</string>
+    <string name="title_activity_show_outlets_on_map_">Map</string>
 </resources>
