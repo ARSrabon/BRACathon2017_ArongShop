@@ -10,7 +10,11 @@ import java.security.NoSuchAlgorithmException;
 public class ShopDetail {
     private String key;
     private String shopName;
+    private String shopOwnerName;
+    private String contact_1;
+    private String contact_2;
     private String address;
+    private String shopType;
     private double latitude;
     private double longiude;
     private boolean visited;
@@ -24,6 +28,35 @@ public class ShopDetail {
         this.latitude = latitude;
         this.longiude = longiude;
         this.visited = visited;
+        try {
+            this.key = generateMD5Key(this.shopName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ShopDetail(String shopName, String address, String shopType, double latitude, double longiude) {
+        this.shopName = shopName;
+        this.address = address;
+        this.shopType = shopType;
+        this.latitude = latitude;
+        this.longiude = longiude;
+        this.visited = false;
+        try {
+            this.key = generateMD5Key(this.shopName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public ShopDetail(String shopName, String shopOwnerName, String address, String shopType, double latitude, double longiude) {
+        this.shopName = shopName;
+        this.shopOwnerName = shopOwnerName;
+        this.address = address;
+        this.shopType = shopType;
+        this.latitude = latitude;
+        this.longiude = longiude;
+        this.visited = false;
         try {
             this.key = generateMD5Key(this.shopName);
         } catch (Exception e) {
@@ -77,6 +110,38 @@ public class ShopDetail {
 
     public void setVisited(boolean visited) {
         this.visited = visited;
+    }
+
+    public String getShopOwnerName() {
+        return shopOwnerName;
+    }
+
+    public void setShopOwnerName(String shopOwnerName) {
+        this.shopOwnerName = shopOwnerName;
+    }
+
+    public String getShopType() {
+        return shopType;
+    }
+
+    public void setShopType(String shopType) {
+        this.shopType = shopType;
+    }
+
+    public String getContact_1() {
+        return contact_1;
+    }
+
+    public void setContact_1(String contact_1) {
+        this.contact_1 = contact_1;
+    }
+
+    public String getContact_2() {
+        return contact_2;
+    }
+
+    public void setContact_2(String contact_2) {
+        this.contact_2 = contact_2;
     }
 
     public String generateMD5Key(String shopName) throws NoSuchAlgorithmException {

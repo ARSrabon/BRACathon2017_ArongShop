@@ -55,7 +55,9 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCHCggESD73Za1z-FgulQGVWU99hnWsMOs" />
 
-        <activity android:name=".activity.ShowOutletsOnMap_Activity"></activity>
+        <activity android:name=".activity.ShowOutletsOnMap_Activity" />
+        <activity android:name=".activity.ShopListView_Activity" />
+        <activity android:name=".activity.ShopDetailsView_Activity"></activity>
     </application>
 
 </manifest>

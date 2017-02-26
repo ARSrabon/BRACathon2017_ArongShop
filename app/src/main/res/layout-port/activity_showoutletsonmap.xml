@@ -26,6 +26,13 @@
                 android:textAlignment="center"
                 android:textColor="#FFF"
                 android:textSize="35sp" />
+            <Button
+                android:id="@+id/btn_addnewshop"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="25sp"
+                android:text="নতুন দোকান"/>
+
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
@@ -85,7 +92,6 @@
         android:id="@+id/mapsHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <include layout="@layout/mapfragment" />
     </FrameLayout>
 

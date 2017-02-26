@@ -1,5 +1,6 @@
 package io.github.arsrabon.m.bracathon2017_arongshop.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -51,6 +52,7 @@ public class ShowOutletsOnMap_Activity extends FragmentActivity implements OnMap
         reference = firebaseDatabase.getReference("RoutesAndShops");
 
         routeSpinner = (Spinner) findViewById(R.id.routeSpinner);
+        btn_ShopList = (Button) findViewById(R.id.btn_outletList);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -58,6 +60,14 @@ public class ShowOutletsOnMap_Activity extends FragmentActivity implements OnMap
 
         routeList = new ArrayList<>();
         mapFragment.getMapAsync(this);
+
+        btn_ShopList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowOutletsOnMap_Activity.this,ShopListView_Activity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

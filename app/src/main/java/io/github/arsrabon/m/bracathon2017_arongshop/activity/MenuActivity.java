@@ -5,26 +5,21 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import io.github.arsrabon.m.bracathon2017_arongshop.MyApplication;
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.Route;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.ShopDetail;
 
 public class MenuActivity extends AppCompatActivity {
 
     Button btn_todaysRoute;
+    Button btn_OutletList;
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference shopReference;
 
@@ -76,6 +71,7 @@ public class MenuActivity extends AppCompatActivity {
 //        });
 
         btn_todaysRoute = (Button) findViewById(R.id.btn_todayRouteMap);
+        btn_OutletList = (Button) findViewById(R.id.btn_outletList);
 
         btn_todaysRoute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +85,14 @@ public class MenuActivity extends AppCompatActivity {
 //                    Toast.makeText(MenuActivity.this, "Please Wait Map data is downloading.", Toast.LENGTH_SHORT).show();
 //                }
 
+            }
+        });
+
+        btn_OutletList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MenuActivity.this,ShopListView_Activity.class);
+                startActivity(intent);
             }
         });
     }
