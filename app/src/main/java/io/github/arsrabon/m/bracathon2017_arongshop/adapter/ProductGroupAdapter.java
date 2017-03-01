@@ -54,7 +54,6 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
         Log.d("onBindViewHolder", String.valueOf(productGroup.getProducts().size()));
         holder.productName.setText(productGroups.get(position).getName());
         Log.d("onBindViewHolder ",productGroup.getName());
-        holder.productInfo.setText(productGroups.get(position).getInfo());
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +81,6 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.productGroupCardView);
             productName = (TextView) itemView.findViewById(R.id.lbl_productname);
-            productInfo = (TextView) itemView.findViewById(R.id.lbl_productinfo);
             product_view = (ImageView) itemView.findViewById(R.id.img_product);
         }
     }

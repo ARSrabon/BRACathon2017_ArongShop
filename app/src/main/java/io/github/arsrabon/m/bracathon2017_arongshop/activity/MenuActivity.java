@@ -25,6 +25,8 @@ import io.github.arsrabon.m.bracathon2017_arongshop.model.ShopDetail;
 public class MenuActivity extends AppCompatActivity {
 
     Button btn_todaysRoute;
+    Button btn_todaysShoplist;
+
     FirebaseDatabase firebaseDatabase;
     DatabaseReference shopReference;
 
@@ -76,11 +78,12 @@ public class MenuActivity extends AppCompatActivity {
 //        });
 
         btn_todaysRoute = (Button) findViewById(R.id.btn_todayRouteMap);
+        btn_todaysShoplist = (Button) findViewById(R.id.btn_shopsList);
 
         btn_todaysRoute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(MenuActivity.this,ShowOutletsOnMap_Activity.class);
+                intent = new Intent(MenuActivity.this, ShowOutletsOnMap_Activity.class);
                 startActivity(intent);
 //                if (dataReady){
 //                    intent.putExtra("routes",gson.toJson(routes));
@@ -89,6 +92,14 @@ public class MenuActivity extends AppCompatActivity {
 //                    Toast.makeText(MenuActivity.this, "Please Wait Map data is downloading.", Toast.LENGTH_SHORT).show();
 //                }
 
+            }
+        });
+
+        btn_todaysShoplist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(MenuActivity.this,ShopsList_Activity.class);
+                startActivity(intent);
             }
         });
     }
