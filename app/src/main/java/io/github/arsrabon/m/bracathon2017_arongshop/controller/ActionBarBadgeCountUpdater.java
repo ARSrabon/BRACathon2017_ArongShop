@@ -1,4 +1,4 @@
-package io.github.arsrabon.m.bracathon2017_arongshop.model;
+package io.github.arsrabon.m.bracathon2017_arongshop.controller;
 
 import android.app.Activity;
 import android.content.Context;
@@ -6,8 +6,6 @@ import android.view.MenuItem;
 
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
-
-import io.github.arsrabon.m.bracathon2017_arongshop.R;
 
 /**
  * Created by msrabon on 2/19/17.

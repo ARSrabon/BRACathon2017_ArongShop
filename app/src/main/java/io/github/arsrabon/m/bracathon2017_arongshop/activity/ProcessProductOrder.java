@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.ActionBarBadgeCountUpdater;
+import io.github.arsrabon.m.bracathon2017_arongshop.controller.ActionBarBadgeCountUpdater;
 
 public class ProcessProductOrder extends AppCompatActivity {
 

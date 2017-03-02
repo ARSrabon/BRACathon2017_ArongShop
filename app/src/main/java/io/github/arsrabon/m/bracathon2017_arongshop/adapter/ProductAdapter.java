@@ -14,8 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
-import io.github.arsrabon.m.bracathon2017_arongshop.controller.ShoppingCartController;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.ActionBarBadgeCountUpdater;
+import io.github.arsrabon.m.bracathon2017_arongshop.controller.ActionBarBadgeCountUpdater;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.Product;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ShoppingCartItem;
 
@@ -30,8 +29,6 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private Activity activity;
 
     ActionBarBadgeCountUpdater countUpdater = ActionBarBadgeCountUpdater.getInstance();
-
-    ShoppingCartController cartController = ShoppingCartController.getInstance();
 
     public ProductAdapter(List<Product> productLists, Context context) {
         this.productLists = productLists;
@@ -65,9 +62,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     countUpdater.setCount(countUpdater.getCount() + 1);
                     countUpdater.updateItemCount();
                     item.setQuantity(qty);
-                    cartController.getShoppingCart().addToCart(item);
+
                 }
-                cartController.getShoppingCart().getFromCart(item).setQuantity(qty);
+
                 holder.productQuantity.setText(String.valueOf(qty));
             }
         });
@@ -90,9 +87,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     countUpdater.setCount(countUpdater.getCount() - 1);
                     countUpdater.updateItemCount();
                     item.setQuantity(qts);
-                    cartController.getShoppingCart().removeFromCart(item);
+
                 }
-                cartController.getShoppingCart().getFromCart(item).setQuantity(qts);
+
                 holder.productQuantity.setText(String.valueOf(qts));
             }
         });

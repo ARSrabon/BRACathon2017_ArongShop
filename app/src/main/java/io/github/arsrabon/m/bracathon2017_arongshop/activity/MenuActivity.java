@@ -3,6 +3,7 @@ package io.github.arsrabon.m.bracathon2017_arongshop.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -13,6 +14,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.gson.Gson;
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,24 +29,30 @@ import io.github.arsrabon.m.bracathon2017_arongshop.R;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.Route;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ShopDetail;
 
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener {
 
     Button btn_todaysRoute;
     Button btn_todaysShoplist;
+    Button btn_TakeOrder;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference shopReference;
 
-    Gson gson;
     Intent intent;
-    private boolean dataReady;
+
+    Toolbar toolbar;
+    AccountHeader headerResult;
+    Drawer result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
-
-        gson = new Gson();
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitle("Take Orders");
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        setNavDrawer();
 
         final List<Route> routes;
 
@@ -79,6 +92,7 @@ public class MenuActivity extends AppCompatActivity {
 
         btn_todaysRoute = (Button) findViewById(R.id.btn_todayRouteMap);
         btn_todaysShoplist = (Button) findViewById(R.id.btn_shopsList);
+        btn_TakeOrder = (Button) findViewById(R.id.btn_TakeOrder);
 
         btn_todaysRoute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,5 +116,42 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        btn_TakeOrder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this,TakeOrder_Activity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+    }
+
+    public void setNavDrawer() {
+        headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.header)
+                .addProfiles(new ProfileDrawerItem().withName("Guest")
+                        .withEmail("yourofficemail@officeemail.com")
+                        .withIcon(getResources().getDrawable(R.drawable.profile2)))
+                .build();
+        result = new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withAccountHeader(headerResult)
+                .inflateMenu(R.menu.drawer_menu)
+                .build();
+        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
+        result.setOnDrawerItemClickListener(this);
+    }
+
+    @Override
+    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+
+        Intent xintent;
+        switch ((int) drawerItem.getIdentifier()) {
+
+        }
+        return false;
     }
 }

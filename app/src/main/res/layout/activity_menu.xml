@@ -44,13 +44,7 @@
             android:text="Today's Route" />
 
         <Button
-            android:id="@+id/btn_shopsList"
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:text="Outlet List" />
-
-        <Button
+            android:id="@+id/btn_TakeOrder"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_weight="1"
@@ -62,10 +56,22 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/btn_shopsList"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:text="Outlet List" />
+
+        <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_weight="1"
             android:text="Product Show" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
         <Button
             android:layout_width="0dp"
@@ -88,19 +94,13 @@
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_weight="1"
-            android:text="Chat" />
+            android:text="Inbox" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_weight="1"
             android:text="Sync Data" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_weight="1"
-            android:text="Inbox" />
     </LinearLayout>
 
     <LinearLayout
@@ -109,22 +109,15 @@
 
         <Button
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_weight="1" />
+            android:layout_height="120dp"
+            android:layout_weight="1"
+            android:text="Emergency Contact" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_weight="1"
             android:text="Sign Out" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_weight="1" />
     </LinearLayout>
-
 
 </LinearLayout>

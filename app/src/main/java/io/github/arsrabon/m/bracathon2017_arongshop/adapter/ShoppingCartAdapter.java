@@ -14,8 +14,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
-import io.github.arsrabon.m.bracathon2017_arongshop.controller.ShoppingCartController;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.ActionBarBadgeCountUpdater;
+import io.github.arsrabon.m.bracathon2017_arongshop.controller.ActionBarBadgeCountUpdater;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ShoppingCartItem;
 
 /**
@@ -28,13 +27,12 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
     Context context;
     Activity activity;
 
-    ShoppingCartController cartController = ShoppingCartController.getInstance();
     private ActionBarBadgeCountUpdater countUpdater = ActionBarBadgeCountUpdater.getInstance();
 
     public ShoppingCartAdapter(Context context) {
         this.context = context;
         this.activity = (Activity) context;
-        cartItems = cartController.getShoppingCart().getCartItems();
+
     }
 
     @Override
@@ -66,9 +64,9 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     countUpdater.setCount(countUpdater.getCount() + 1);
                     countUpdater.updateItemCount();
                     item.setQuantity(qty);
-                    cartController.getShoppingCart().addToCart(item);
+
                 }
-                cartController.getShoppingCart().getFromCart(item).setQuantity(qty);
+
                 holder.edit_productQuantity.setText(String.valueOf(qty));
             }
         });
@@ -91,9 +89,9 @@ public class ShoppingCartAdapter extends RecyclerView.Adapter<ShoppingCartAdapte
                     countUpdater.setCount(countUpdater.getCount() - 1);
                     countUpdater.updateItemCount();
                     item.setQuantity(qts);
-                    cartController.getShoppingCart().removeFromCart(item);
+
                 }
-                cartController.getShoppingCart().getFromCart(item).setQuantity(qts);
+
                 holder.edit_productQuantity.setText(String.valueOf(qts));
             }
         });

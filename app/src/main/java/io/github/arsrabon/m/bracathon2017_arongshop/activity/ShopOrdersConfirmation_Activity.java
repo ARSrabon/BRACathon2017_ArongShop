@@ -10,13 +10,8 @@ import android.widget.Button;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.List;
-
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
-import io.github.arsrabon.m.bracathon2017_arongshop.adapter.ProductGroupAdapter;
 import io.github.arsrabon.m.bracathon2017_arongshop.adapter.ShoppingCartAdapter;
-import io.github.arsrabon.m.bracathon2017_arongshop.controller.ShoppingCartController;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.ShoppingCartItem;
 
 public class ShopOrdersConfirmation_Activity extends AppCompatActivity {
 
@@ -25,8 +20,6 @@ public class ShopOrdersConfirmation_Activity extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
-
-    ShoppingCartController cartController = ShoppingCartController.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +36,7 @@ public class ShopOrdersConfirmation_Activity extends AppCompatActivity {
         btn_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                List<ShoppingCartItem> sItems = cartController.getShoppingCart().getCartItems();
-                for (ShoppingCartItem item : sItems){
-                    if (item.getQuantity() != 0){
-                        reference.push().setValue(item);
-                    }
-                }
+
             }
         });
     }

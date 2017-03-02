@@ -16,7 +16,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/lbl_productGroup"
+                android:id="@+id/lbl_productGroupName"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"

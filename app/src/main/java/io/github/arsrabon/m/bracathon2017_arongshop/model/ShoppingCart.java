@@ -8,7 +8,11 @@ import java.util.List;
  */
 
 public class ShoppingCart {
+
+    private String date;
     private List<ShoppingCartItem> cartItems = new ArrayList<>();
+    private double totalPrice;
+    private int typeOfProduct;
 
     public ShoppingCart() {
     }
@@ -25,14 +29,6 @@ public class ShoppingCart {
         this.cartItems = cartItems;
     }
 
-    public void addToCart(ShoppingCartItem cartItem) {
-        cartItems.add(cartItem);
-    }
-
-    public void removeFromCart(ShoppingCartItem cartItem) {
-        cartItems.remove(cartItem);
-    }
-
     public ShoppingCartItem getFromCart(ShoppingCartItem cartItem) {
         for (int i = 0; i < cartItems.size(); i++) {
             if (cartItems.get(i) == cartItem) {
@@ -40,5 +36,33 @@ public class ShoppingCart {
             }
         }
         return null;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public double getTotalPrice() {
+        this.totalPrice = 0;
+        for (ShoppingCartItem item : cartItems) {
+            totalPrice = item.getPrice();
+        }
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getTypeOfProduct() {
+        return typeOfProduct;
+    }
+
+    public void setTypeOfProduct(int typeOfProduct) {
+        this.typeOfProduct = typeOfProduct;
     }
 }

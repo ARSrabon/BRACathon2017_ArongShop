@@ -35,12 +35,14 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:id="@+id/btn_ShowShopsList"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Show Outlet List" />
 
         <Button
+            android:id="@+id/btn_SearchShops"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -69,12 +71,14 @@
         android:paddingTop="30dp">
 
         <Button
+            android:id="@+id/btn_ShowNotVisitedYet"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Not yet visited" />
 
         <Button
+            android:id="@+id/btn_ShowVisitedShops"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

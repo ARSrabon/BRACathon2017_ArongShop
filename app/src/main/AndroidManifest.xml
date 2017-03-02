@@ -57,7 +57,8 @@
 
         <activity android:name=".activity.ShowOutletsOnMap_Activity" />
         <activity android:name=".activity.ShopsList_Activity" />
-        <activity android:name=".activity.ShopDetailsView_Activity"></activity>
+        <activity android:name=".activity.ShopDetailsView_Activity" />
+        <activity android:name=".activity.TakeOrder_Activity"></activity>
     </application>
 
 </manifest>

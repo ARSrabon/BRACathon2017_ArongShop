@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -73,14 +72,12 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
 
         CardView cardView;
         TextView productName;
-        TextView productInfo;
         ImageView product_view;
-        ImageView showDirection;
 
         public ProductGroupViewHolder(View itemView) {
             super(itemView);
             cardView = (CardView) itemView.findViewById(R.id.productGroupCardView);
-            productName = (TextView) itemView.findViewById(R.id.lbl_productname);
+            productName = (TextView) itemView.findViewById(R.id.lbl_productGroupName);
             product_view = (ImageView) itemView.findViewById(R.id.img_product);
         }
     }
