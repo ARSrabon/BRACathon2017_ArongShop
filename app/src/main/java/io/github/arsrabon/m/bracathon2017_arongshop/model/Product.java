@@ -18,22 +18,19 @@ public class Product {
     private double price;
     private String priceBng;
 
-    private String imgLocation;
-
     private boolean discount;
 
     public Product() {
     }
 
     public Product(String pName, String pBngName, String sku, String skuBng,
-                   double price, String priceBng, String imgLocation, boolean discount) {
+                   double price, String priceBng, boolean discount) {
         this.pName = pName;
         this.pBngName = pBngName;
         this.sku = sku;
         this.skuBng = skuBng;
         this.price = price;
         this.priceBng = priceBng;
-        this.imgLocation = imgLocation;
         this.discount = discount;
     }
 
@@ -83,14 +80,6 @@ public class Product {
 
     public void setPriceBng(String priceBng) {
         this.priceBng = priceBng;
-    }
-
-    public String getImgLocation() {
-        return imgLocation;
-    }
-
-    public void setImgLocation(String imgLocation) {
-        this.imgLocation = imgLocation;
     }
 
     public boolean isDiscount() {

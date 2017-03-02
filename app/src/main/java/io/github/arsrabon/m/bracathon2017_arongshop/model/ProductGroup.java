@@ -6,10 +6,14 @@ import java.util.List;
  * Created by msrabon on 2/13/17.
  */
 
-public class ProductGroup{
-    private String name;
+public class ProductGroup {
+    private String pName;
+    private String pNameBng;
 
     private String info;
+    private String infoBng;
+
+    private String imgLocation;
 
     private List<Product> products;
 
@@ -17,27 +21,29 @@ public class ProductGroup{
         super();
     }
 
-    public ProductGroup(String name, String info, List<Product> products) {
-        super();
-        this.name = name;
+    public ProductGroup(String pName, String pNameBng, String info, String infoBng, String imgLocation, List<Product> products) {
+        this.pName = pName;
+        this.pNameBng = pNameBng;
         this.info = info;
+        this.infoBng = infoBng;
+        this.imgLocation = imgLocation;
         this.products = products;
     }
 
-    public String getName() {
-        return name;
+    public String getpName() {
+        return pName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setpName(String pName) {
+        this.pName = pName;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public String getpNameBng() {
+        return pNameBng;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setpNameBng(String pNameBng) {
+        this.pNameBng = pNameBng;
     }
 
     public String getInfo() {
@@ -48,11 +54,27 @@ public class ProductGroup{
         this.info = info;
     }
 
-    public void addToProduct(Product product){
-        products.add(product);
+    public String getInfoBng() {
+        return infoBng;
     }
 
-    public void deleteProduct(Product product){
-        products.remove(product);
+    public void setInfoBng(String infoBng) {
+        this.infoBng = infoBng;
+    }
+
+    public String getImgLocation() {
+        return imgLocation;
+    }
+
+    public void setImgLocation(String imgLocation) {
+        this.imgLocation = imgLocation;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

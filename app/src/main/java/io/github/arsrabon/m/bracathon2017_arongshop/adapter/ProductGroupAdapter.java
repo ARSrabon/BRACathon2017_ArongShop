@@ -50,14 +50,15 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
     @Override
     public void onBindViewHolder(final ProductGroupViewHolder holder, final int position) {
         final ProductGroup productGroup = productGroups.get(position);
-        Log.d("onBindViewHolder", String.valueOf(productGroup.getProducts().size()));
-        holder.productName.setText(productGroups.get(position).getName());
-        Log.d("onBindViewHolder ",productGroup.getName());
+//        Log.d("onBindViewHolder", String.valueOf(productGroup.getProducts().size()));
+        holder.productName.setText(productGroups.get(position).getpName());
+        String imgLoc = "R.drawable." + productGroups.get(position).getImgLocation();
+        holder.product_view.setImageResource(Integer.parseInt(imgLoc));
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProcessProductOrder.class);
-                intent.putExtra("ProductName",productGroup.getName().toString());
+                intent.putExtra("ProductName", productGroup.getpName().toString());
                 activity.startActivity(intent);
             }
         });
@@ -65,7 +66,9 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
 
     @Override
     public int getItemCount() {
-        return productGroups.size();
+//        return productGroups.size();
+        Log.d("progroSize", "");
+        return 0;
     }
 
     public static class ProductGroupViewHolder extends RecyclerView.ViewHolder {

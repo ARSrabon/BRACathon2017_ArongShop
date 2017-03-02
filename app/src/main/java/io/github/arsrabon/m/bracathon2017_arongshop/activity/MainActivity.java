@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -13,8 +14,11 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.android.gms.ads.formats.NativeAd;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
@@ -60,56 +64,66 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
         reference = firebaseDatabase.getReference("ProductGroupedList");
 
         productGroupView = (RecyclerView) findViewById(R.id.productGroupsView);
-//        textView = (TextView) findViewById(R.id.shopingCart);
+
+
+//        List<Product> products = new ArrayList<>();
+//        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৮৭৮ টাকা",false));
+//        products.add(new Product("Ghee","ঘি","400gm","৯০০ গ্রাম",415.00,"৪১৫ টাকা",false));
+//        products.add(new Product("Ghee","ঘি","200gm","৯০০ গ্রাম",218.00,"২১৮ টাকা",false));
+//        products.add(new Product("Ghee","ঘি","100gm","৯০০ গ্রাম",115.00,"১১৫ টাকা",false));
+//        products.add(new Product("Ghee","ঘি","60gm","৯০০ গ্রাম",64.00,"৬৪ টাকা",false));
+//        products.add(new Product("Ghee","ঘি","30gm","৯০০ গ্রাম",34.00,"৩৪ টাকা",false));
+//        products.add(new Product("Ghee","ঘি","15gm","৯০০ গ্রাম",17.00,"১৭ টাকা",false));
 //
-
-        List<Product> products = new ArrayList<>();
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৯০০ গ্রাম","",false));
-
-        List<Product> products2 = new ArrayList<>();
-        products2.add(new Product());
-
-        productGroups = new ArrayList<>();
-        productGroups.add(new ProductGroup("Ghee", "Made from full creamed milk.", products));
-//        productGroups.add(new ProductGroup("Borhani", "Made with sour curd,salt etc.", products1));
+//        List<Product> products2 = new ArrayList<>();
+//        products2.add(new Product("Pasteurized","পাস্তুরিত দুধ","1000 ml","১০০০ মিলি.",65.00,"৬৫ টাকা",false));
+//        products2.add(new Product("Pasteurized","পাস্তুরিত দুধ","500 ml","৫০০ মিলি.",35.20,"৩৫.২০ টাকাা",false));
+//        products2.add(new Product("Pasteurized","পাস্তুরিত দুধ","250 ml","২৫০ মিলি.",20.00,"২০ টাকা",false));
+//        products2.add(new Product("Pasteurized","পাস্তুরিত দুধ","200 ml","২০০ মিলি.",18.00,"১৮ টাকা",false));
+//        products2.add(new Product("Pasteurized","লো-ফ্যাট দুধ","500 ml","৫০০ মিলি.",37.00,"১৮ টাকা",false));
 //
+//        List<Product> products1 = new ArrayList<>();
+//        products1.add(new Product("Borhani","বোরহানি","1000 ml","১০০০ মিলি.",105.00,"১০৫ টাকা",false));
+//        products1.add(new Product("Borhani","বোরহানি","500 ml","৫০০ মিলি.",55.00,"৫৫ টাকা",false));
+//        products1.add(new Product("Borhani","বোরহানি","200 ml","২০০ মিলি.",25.00,"২৫ টাকা",false));
+//
+//        List<Product> products3 = new ArrayList<>();
+//        products3.add(new Product("Laban","লাবান","500 ml","৫০০ মিলি.",55.00,"৫৫ টাকা",false));
+//        products3.add(new Product("Laban","লাবান","250 ml","২৫০ মিলি.",25.00,"২৬.৫ টাকা",false));
+//
+//        productGroups = new ArrayList<>();
+//        productGroups.add(new ProductGroup("Pasteurized","পাস্তুরিত দুধ","Made from full creamed milk.","","uht_liquid", products2));
+//        productGroups.add(new ProductGroup("Ghee","ঘি","Made from full creamed milk.","","ghee", products));
+//        productGroups.add(new ProductGroup("Borhani","বোরহানি","Made with sour curd,salt etc.","","borhani",products1));
+//        productGroups.add(new ProductGroup("Laban","লাবান","Made with sour curd,salt etc.","","labang",products3));
+////
 //        for (ProductGroup group : productGroups) {
 //            reference.push().setValue(group);
 //        }
-        setProductGroupsView(productGroups);
-//        reference.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    productGroups.add(snapshot.getValue(ProductGroup.class));
-//                }
-//                setProductGroupsView(productGroups);
-//                cartController.newShoppingCart();
-//            }
 //
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//                Log.d("onCancelled ",databaseError.getMessage());
-//            }
-//        });
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    productGroups.add(snapshot.getValue(ProductGroup.class));
+                }
+                Log.d("progroSize", String.valueOf(productGroups.size()));
+                setProductGroupsView(productGroups);
+//                cartController.newShoppingCart();
+            }
 
-        for (int i = 0; i < productGroups.size(); i++) {
-            Log.d("ProductGroup", String.valueOf(productGroups.get(i).getProducts().size()));
-        }
-
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d("onCancelled ",databaseError.getMessage());
+            }
+        });
 
     }
 
     public void setProductGroupsView(List<ProductGroup> productGroups) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
-        //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        productGroupView.setLayoutManager(gridLayoutManager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        productGroupView.setLayoutManager(linearLayoutManager);
 
         try {
             ProductGroupAdapter productGroupAdapter = new ProductGroupAdapter(productGroups, MainActivity.this);
