@@ -60,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
         setNavDrawer();
 
+        productGroups = new ArrayList<>();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference("ProductGroupedList");
 

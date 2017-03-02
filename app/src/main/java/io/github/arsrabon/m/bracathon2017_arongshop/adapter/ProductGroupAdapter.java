@@ -3,6 +3,7 @@ package io.github.arsrabon.m.bracathon2017_arongshop.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -52,8 +53,8 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
         final ProductGroup productGroup = productGroups.get(position);
 //        Log.d("onBindViewHolder", String.valueOf(productGroup.getProducts().size()));
         holder.productName.setText(productGroups.get(position).getpName());
-        String imgLoc = "R.drawable." + productGroups.get(position).getImgLocation();
-        holder.product_view.setImageResource(Integer.parseInt(imgLoc));
+        int picId = activity.getResources().getIdentifier(productGroups.get(position).getImgLocation(), "drawable", activity.getApplicationContext().getPackageName());
+        holder.product_view.setImageResource(picId);
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,9 +67,9 @@ public class ProductGroupAdapter extends RecyclerView.Adapter<ProductGroupAdapte
 
     @Override
     public int getItemCount() {
-//        return productGroups.size();
-        Log.d("progroSize", "");
-        return 0;
+        return productGroups.size();
+//        Log.d("progroSize", "");
+//        return 0;
     }
 
     public static class ProductGroupViewHolder extends RecyclerView.ViewHolder {
