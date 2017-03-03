@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.List;
 
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
-import io.github.arsrabon.m.bracathon2017_arongshop.adapter.ProductGroupAdapter;
 import io.github.arsrabon.m.bracathon2017_arongshop.adapter.ProductsSkuButtonAdapater;
 import io.github.arsrabon.m.bracathon2017_arongshop.controller.ActionBarBadgeCountUpdater;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.Product;
@@ -31,6 +30,7 @@ public class ProcessProductOrder extends AppCompatActivity {
     private Toolbar toolbar;
     Intent intent;
     TextView lbl_productname;
+    TextView lbl_productdiscount;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference reference;
@@ -38,6 +38,9 @@ public class ProcessProductOrder extends AppCompatActivity {
     ProductGroup productGroup;
 
     RecyclerView recyclerView;
+
+    ImageButton btn_plus;
+    ImageButton btn_minus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,11 @@ public class ProcessProductOrder extends AppCompatActivity {
         final String product = intent.getStringExtra("ProductName");
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_productsku);
+        lbl_productname = (TextView) findViewById(R.id.lbl_productname);
+        lbl_productdiscount = (TextView) findViewById(R.id.lbl_showDiscount);
+
+        btn_plus = (ImageButton) findViewById(R.id.btn_plus);
+        btn_minus = (ImageButton) findViewById(R.id.btn_minus);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference("ProductGroupedList");
@@ -59,6 +67,8 @@ public class ProcessProductOrder extends AppCompatActivity {
                     }
                 }
                 setProductGroupsView(productGroup.getProducts());
+                lbl_productname.setText(productGroup.getpNameBng());
+
             }
 
             @Override
@@ -67,17 +77,15 @@ public class ProcessProductOrder extends AppCompatActivity {
             }
         });
 
-        lbl_productname = (TextView) findViewById(R.id.lbl_productname);
-        lbl_productname.setText(intent.getStringExtra("ProductName"));
     }
 
     public void setProductGroupsView(List<Product> productGroups) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getBaseContext(),4);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getBaseContext(), 4);
 //        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
 
         try {
-            ProductsSkuButtonAdapater adapater = new ProductsSkuButtonAdapater();
+            ProductsSkuButtonAdapater adapater = new ProductsSkuButtonAdapater(productGroups, ProcessProductOrder.this);
             recyclerView.setAdapter(adapater);
         } catch (Exception e) {
             e.printStackTrace();
