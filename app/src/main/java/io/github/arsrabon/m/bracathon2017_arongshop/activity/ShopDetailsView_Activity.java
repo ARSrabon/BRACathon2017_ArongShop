@@ -24,7 +24,7 @@ public class ShopDetailsView_Activity extends AppCompatActivity {
         btn_takeorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShopDetailsView_Activity.this, MainActivity.class);
+                Intent intent = new Intent(ShopDetailsView_Activity.this, TakeProductsOrder_Activity.class);
                 startActivity(intent);
             }
         });

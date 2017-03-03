@@ -17,7 +17,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
-            android:name=".activity.MainActivity"
+            android:name=".activity.TakeProductsOrder_Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".activity.ShopOrdersConfirmation_Activity" />
 
@@ -58,7 +58,8 @@
         <activity android:name=".activity.ShowOutletsOnMap_Activity" />
         <activity android:name=".activity.ShopsList_Activity" />
         <activity android:name=".activity.ShopDetailsView_Activity" />
-        <activity android:name=".activity.TakeOrder_Activity"></activity>
+        <activity android:name=".activity.TakeOrder_Activity" />
+        <activity android:name=".MyPerformance_Activity"></activity>
     </application>
 
 </manifest>

@@ -21,6 +21,9 @@ public class ActionBarBadgeCountUpdater {
     int count;
     MenuItem menuItem;
 
+    int timerSEC;
+    int timerMIN;
+
     private ActionBarBadgeCountUpdater() {
     }
 

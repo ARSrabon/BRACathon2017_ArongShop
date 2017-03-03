@@ -1,12 +1,9 @@
 package io.github.arsrabon.m.bracathon2017_arongshop.model;
 
-
-
-import java.lang.reflect.Modifier;
-
 /**
  * Created by msrabon on 2/11/17.
  */
+
 public class Product {
 
     private String pName;

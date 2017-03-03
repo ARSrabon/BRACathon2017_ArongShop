@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/md_blue_600"
+        android:background="@color/md_blue_500"
         android:weightSum="1"
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -34,89 +34,138 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="20dp">
 
         <Button
             android:id="@+id/btn_todayRouteMap"
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
             android:text="Today's Route" />
 
         <Button
             android:id="@+id/btn_TakeOrder"
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
             android:text="Take Order" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <Button
             android:id="@+id/btn_shopsList"
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
+            android:paddingRight="5dp"
             android:text="Outlet List" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
             android:text="Product Show" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
+            android:drawableTop="@mipmap/ic_analytics_1"
             android:text="My Performance" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
-            android:text="Report" />
+            android:background="@drawable/button_border"
+            android:drawableTop="@mipmap/ic_report_1"
+            android:text="দোকানের তালিকা "
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
+            android:drawableLeft="@mipmap/ic_chat_1"
             android:text="Inbox" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
             android:text="Sync Data" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
             android:text="Emergency Contact" />
 
         <Button
             android:layout_width="0dp"
             android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
             android:layout_weight="1"
+            android:background="@drawable/button_border"
+            android:textColor="@color/md_red_600"
+            android:textStyle="bold"
             android:text="Sign Out" />
     </LinearLayout>
 

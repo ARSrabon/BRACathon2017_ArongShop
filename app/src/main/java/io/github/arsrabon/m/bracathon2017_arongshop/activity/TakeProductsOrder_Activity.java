@@ -3,7 +3,6 @@ package io.github.arsrabon.m.bracathon2017_arongshop.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,9 +10,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
-import com.google.android.gms.ads.formats.NativeAd;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,10 +29,9 @@ import java.util.List;
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
 import io.github.arsrabon.m.bracathon2017_arongshop.adapter.ProductGroupAdapter;
 import io.github.arsrabon.m.bracathon2017_arongshop.controller.ActionBarBadgeCountUpdater;
-import io.github.arsrabon.m.bracathon2017_arongshop.model.Product;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ProductGroup;
 
-public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener {
+public class TakeProductsOrder_Activity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener {
 
     Toolbar toolbar;
     RecyclerView productGroupView;
@@ -52,7 +48,7 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_takeproductoreder);
         countUpdater = ActionBarBadgeCountUpdater.getInstance();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("Take Orders");
@@ -98,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
 //        productGroups.add(new ProductGroup("Ghee","ঘি","Made from full creamed milk.","","ghee", products));
 //        productGroups.add(new ProductGroup("Borhani","বোরহানি","Made with sour curd,salt etc.","","borhani",products1));
 //        productGroups.add(new ProductGroup("Laban","লাবান","Made with sour curd,salt etc.","","labang",products3));
-////
+//
 //        for (ProductGroup group : productGroups) {
 //            reference.push().setValue(group);
 //        }
@@ -128,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
         productGroupView.setLayoutManager(linearLayoutManager);
 
         try {
-            ProductGroupAdapter productGroupAdapter = new ProductGroupAdapter(productGroups, MainActivity.this);
+            ProductGroupAdapter productGroupAdapter = new ProductGroupAdapter(productGroups, TakeProductsOrder_Activity.this);
             productGroupView.setAdapter(productGroupAdapter);
         } catch (Exception e) {
             e.printStackTrace();
@@ -146,7 +142,7 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
 //        } else {
 //            ActionItemBadge.hide(menu.findItem(R.id.item_samplebadge));
 //        }
-        countUpdater.initialize(MainActivity.this, menu.findItem(R.id.item_samplebadge));
+        countUpdater.initialize(TakeProductsOrder_Activity.this, menu.findItem(R.id.item_samplebadge));
 
         //If you want to add your ActionItem programmatically you can do this too. You do the following:
 //        new ActionItemBadgeAdder().act(this).menu(menu).title("").itemDetails(0, R.string.sample, 1).showAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS).add(R.drawable.ic_action_name);
@@ -158,7 +154,7 @@ public class MainActivity extends AppCompatActivity implements Drawer.OnDrawerIt
 
         int id = item.getItemId();
         if (id == R.id.item_samplebadge) {
-            Intent intent = new Intent(MainActivity.this, ShopOrdersConfirmation_Activity.class);
+            Intent intent = new Intent(TakeProductsOrder_Activity.this, ShopOrdersConfirmation_Activity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

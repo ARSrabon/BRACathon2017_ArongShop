@@ -12,7 +12,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/md_blue_900"
+        android:background="@color/md_blue_500"
         android:weightSum="1"
         app:popupTheme="@style/AppTheme.PopupOverlay">
 
@@ -20,20 +20,27 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/appLogo"
-                android:layout_width="0dp"
+            <TextView
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_weight="7"
-                android:src="@mipmap/aarong_logo_dark" />
+                android:layout_weight="1"
+                android:text="অর্ডার সম্পন্ন"
+                android:textAlignment="center"
+                android:textColor="#FFF"
+                android:textSize="35sp" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
     <TextView
-        android:id="@+id/lbl_totalPrice"
+        android:id="@+id/lbl_ShopName"
         android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:text="Shop Name"/>
+    <TextView
+        android:id="@+id/lbl_totalPrice"
+        android:layout_below="@+id/lbl_ShopName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="25sp"

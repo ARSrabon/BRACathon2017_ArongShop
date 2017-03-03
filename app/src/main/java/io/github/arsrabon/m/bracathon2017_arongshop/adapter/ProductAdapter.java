@@ -88,6 +88,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
                     countUpdater.updateItemCount();
                     item.setQuantity(qts);
 
+
                 }
 
                 holder.productQuantity.setText(String.valueOf(qts));

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.ContentFrameLayout;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +52,8 @@ public class ShopDetailViewAdapter extends RecyclerView.Adapter<ShopDetailViewAd
         holder.lbl_shopOwnerName.setText(shopDetail.getKey());
         holder.lbl_shopAddress.setText(shopDetail.getAddress());
         holder.lbl_shopPosition.setText(String.valueOf(position + 1));
+
+        Log.d("map", String.valueOf(shopDetail.getLatitude() + "," + shopDetail.getLongiude()));
 
         holder.btn_visitShop.setOnClickListener(new View.OnClickListener() {
             @Override
