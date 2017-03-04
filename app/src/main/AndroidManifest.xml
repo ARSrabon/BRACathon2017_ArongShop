@@ -59,7 +59,7 @@
         <activity android:name=".activity.ShopsList_Activity" />
         <activity android:name=".activity.ShopDetailsView_Activity" />
         <activity android:name=".activity.TakeOrder_Activity" />
-        <activity android:name=".MyPerformance_Activity"></activity>
+        <activity android:name=".activity.MyPerformance_Activity"></activity>
     </application>
 
 </manifest>

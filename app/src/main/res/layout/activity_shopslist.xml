@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_shopslist"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,16 +24,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="দোকান তালিকা"
+                android:text="Shops List"
                 android:textAlignment="center"
                 android:textColor="#FFF"
                 android:textSize="30sp" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/btn_addnewshop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="নতুন দোকান"
+                android:background="@drawable/layout_border"
+                android:src="@mipmap/ic_addnewshop"
+                android:textSize="25sp" />
+
+            <ImageButton
+                android:id="@+id/btn_SearchShops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/layout_border"
+                android:src="@mipmap/ic_shop_search"
                 android:textSize="25sp" />
         </LinearLayout>
 
@@ -48,31 +57,29 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Show Outlet List" />
+            android:background="@drawable/layout_border"
+            android:text="Show Outlets on Map"
+            android:textSize="20sp" />
 
-        <Button
-            android:id="@+id/btn_SearchShops"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Search" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <TextView
-            android:layout_width="0dp"
+            android:id="@+id/lbl_noChange"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="20sp"
             android:text="Select Route:"
-            android:layout_weight="1" />
+            android:textSize="25sp" />
+
         <Spinner
             android:id="@+id/routeSpinner"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="2" />
-    </LinearLayout>
+            android:layout_toRightOf="@+id/lbl_noChange" />
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -80,23 +87,36 @@
         android:paddingTop="30dp">
 
         <Button
+            android:id="@+id/btn_ShowAllShops"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/layout_border"
+            android:text="Show All"
+            android:textSize="20dp" />
+
+        <Button
             android:id="@+id/btn_ShowNotVisitedYet"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Not yet visited" />
+            android:background="@drawable/layout_border"
+            android:text="Not yet visited"
+            android:textSize="20dp" />
 
         <Button
             android:id="@+id/btn_ShowVisitedShops"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Visited" />
+            android:background="@drawable/layout_border"
+            android:text="Visited"
+            android:textSize="20dp" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_shopsList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

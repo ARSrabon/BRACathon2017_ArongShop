@@ -6,8 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -41,6 +41,7 @@ public class ProcessProductOrder extends AppCompatActivity {
 
     ImageButton btn_plus;
     ImageButton btn_minus;
+    ImageView productView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +56,7 @@ public class ProcessProductOrder extends AppCompatActivity {
 
         btn_plus = (ImageButton) findViewById(R.id.btn_plus);
         btn_minus = (ImageButton) findViewById(R.id.btn_minus);
+        productView = (ImageView) findViewById(R.id.img_Product);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference("ProductGroupedList");
@@ -68,7 +70,8 @@ public class ProcessProductOrder extends AppCompatActivity {
                 }
                 setProductGroupsView(productGroup.getProducts());
                 lbl_productname.setText(productGroup.getpNameBng());
-
+                int picId = getResources().getIdentifier(productGroup.getImgLocation(), "drawable", getApplicationContext().getPackageName());
+                productView.setImageResource(picId);
             }
 
             @Override

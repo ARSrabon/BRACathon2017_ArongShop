@@ -67,7 +67,7 @@ public class ProductsSkuButtonAdapater extends RecyclerView.Adapter<ProductsSkuB
                     @Override
                     public void onClick(View v) {
                         String s = editText.getText().toString();
-                        if (!s.equals(null)) {
+                        if (!s.equals(null) && !s.equals("")) {
                             int x = Integer.valueOf(s);
                             if (x >= 0) {
                                 x++;
@@ -83,7 +83,7 @@ public class ProductsSkuButtonAdapater extends RecyclerView.Adapter<ProductsSkuB
                     @Override
                     public void onClick(View v) {
                         String s = editText.getText().toString();
-                        if (!s.equals(null)) {
+                        if (!s.equals(null) && !s.equals("")) {
                             int x = Integer.valueOf(s);
                             if (x > 0) {
                                 x--;

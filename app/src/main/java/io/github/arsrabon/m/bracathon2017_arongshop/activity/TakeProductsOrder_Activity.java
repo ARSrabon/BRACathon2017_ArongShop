@@ -31,7 +31,7 @@ import io.github.arsrabon.m.bracathon2017_arongshop.adapter.ProductGroupAdapter;
 import io.github.arsrabon.m.bracathon2017_arongshop.controller.ActionBarBadgeCountUpdater;
 import io.github.arsrabon.m.bracathon2017_arongshop.model.ProductGroup;
 
-public class TakeProductsOrder_Activity extends AppCompatActivity implements Drawer.OnDrawerItemClickListener {
+public class TakeProductsOrder_Activity extends AppCompatActivity {
 
     Toolbar toolbar;
     RecyclerView productGroupView;
@@ -54,7 +54,6 @@ public class TakeProductsOrder_Activity extends AppCompatActivity implements Dra
         toolbar.setTitle("Take Orders");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-        setNavDrawer();
 
         productGroups = new ArrayList<>();
 
@@ -158,34 +157,6 @@ public class TakeProductsOrder_Activity extends AppCompatActivity implements Dra
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    public void setNavDrawer() {
-        headerResult = new AccountHeaderBuilder()
-                .withActivity(this)
-                .withHeaderBackground(R.drawable.header)
-                .addProfiles(new ProfileDrawerItem().withName("Guest")
-                        .withEmail("yourofficemail@officeemail.com")
-                        .withIcon(getResources().getDrawable(R.drawable.profile2)))
-                .build();
-        result = new DrawerBuilder()
-                .withActivity(this)
-                .withToolbar(toolbar)
-                .withAccountHeader(headerResult)
-                .inflateMenu(R.menu.drawer_menu)
-                .build();
-        result.getActionBarDrawerToggle().setDrawerIndicatorEnabled(true);
-        result.setOnDrawerItemClickListener(this);
-    }
-
-    @Override
-    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-
-        Intent xintent;
-        switch ((int) drawerItem.getIdentifier()) {
-
-        }
-        return false;
     }
 
 }

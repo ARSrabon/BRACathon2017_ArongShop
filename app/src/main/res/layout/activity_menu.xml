@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="মেনু"
+                android:text="Menu"
                 android:textAlignment="center"
                 android:textColor="#FFF"
                 android:textSize="35sp" />
@@ -46,7 +46,11 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
-            android:text="Today's Route" />
+            android:drawableTop="@mipmap/ic_map_routes"
+            android:text="Today's Route"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btn_TakeOrder"
@@ -56,7 +60,11 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
-            android:text="Take Order" />
+            android:drawableTop="@mipmap/ic_take_order"
+            android:text="Take Order"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -73,8 +81,12 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
+            android:drawableTop="@mipmap/ic_shops"
             android:paddingRight="5dp"
-            android:text="Outlet List" />
+            android:text="Outlet List"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="0dp"
@@ -83,7 +95,11 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
-            android:text="Product Show" />
+            android:drawableTop="@mipmap/ic_products_show"
+            android:text="Product List"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -93,6 +109,7 @@
         android:paddingTop="10dp">
 
         <Button
+            android:id="@+id/btn_myPerformance"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginLeft="20dp"
@@ -100,7 +117,10 @@
             android:layout_weight="1"
             android:background="@drawable/button_border"
             android:drawableTop="@mipmap/ic_analytics_1"
-            android:text="My Performance" />
+            android:text="My Performance"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="0dp"
@@ -110,7 +130,7 @@
             android:layout_weight="1"
             android:background="@drawable/button_border"
             android:drawableTop="@mipmap/ic_report_1"
-            android:text="দোকানের তালিকা "
+            android:text="Report"
             android:textColor="#1e87e4"
             android:textSize="25dp"
             android:textStyle="bold" />
@@ -129,8 +149,11 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
-            android:drawableLeft="@mipmap/ic_chat_1"
-            android:text="Inbox" />
+            android:drawableTop="@mipmap/ic_chat_1"
+            android:text="Inbox"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
 
         <Button
             android:layout_width="0dp"
@@ -139,14 +162,19 @@
             android:layout_marginRight="20dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
-            android:text="Sync Data" />
+            android:drawableTop="@mipmap/ic_sync_device"
+            android:text="Sync Data"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="10dp"
-        android:paddingTop="10dp">
+        android:paddingTop="10dp"
+        android:baselineAligned="false">
 
         <Button
             android:layout_width="0dp"
@@ -155,18 +183,25 @@
             android:layout_marginRight="10dp"
             android:layout_weight="1"
             android:background="@drawable/button_border"
-            android:text="Emergency Contact" />
-
-        <Button
-            android:layout_width="0dp"
-            android:layout_height="120dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="1"
-            android:background="@drawable/button_border"
-            android:textColor="@color/md_red_600"
+            android:drawableTop="@mipmap/ic_emergency"
+            android:text="Emergency Contact"
+            android:textColor="#1e87e4"
+            android:textSize="25dp"
             android:textStyle="bold"
-            android:text="Sign Out" />
+            android:id="@+id/button2" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/button_border"
+            android:drawableTop="@mipmap/ic_sign_out"
+            android:text="Sign Out"
+            android:textColor="@color/md_red_600"
+            android:textSize="25dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
 </LinearLayout>
