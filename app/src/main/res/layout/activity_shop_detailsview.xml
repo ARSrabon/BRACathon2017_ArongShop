@@ -23,8 +23,9 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingTop="10dp"
                 android:layout_weight="1"
-                android:text="দোকান বিবরণ"
+                android:text="Shop Details"
                 android:textAlignment="center"
                 android:textColor="#FFF"
                 android:textSize="30sp" />
@@ -37,84 +38,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Abir Super Shop"
-        android:textSize="25sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/lbl_ShopOwnerName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="50dp"
         android:text="Abir Hossain"
-        android:textSize="20sp" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contacts:"
-            android:textSize="20sp" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:orientation="vertical">
-
-            <ImageButton
-                android:id="@+id/img_btn_Contact_1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:scaleType="fitXY"
-                android:src="@mipmap/ic_phonecall_1" />
-
-            <TextView
-                android:id="@+id/lbl_ShopOwnerContact_1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@+id/img_btn_Contact_1"
-                android:text="+8801827073009" />
-
-            <TextView
-                android:id="@+id/lbl_ShopOwnerContact_2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/lbl_ShopOwnerContact_1"
-                android:layout_toRightOf="@+id/img_btn_Contact_1"
-                android:text="+8801827073009" />
-        </RelativeLayout>
-    </LinearLayout>
+        android:textSize="30sp" />
 
     <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="50dp"
+        android:text="Contacts:"
+        android:textSize="30sp" />
+
+    <TextView
+        android:paddingTop="50dp"
         android:id="@+id/lbl_ShopAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Joshimuddin road,Motijhil,dhaka." />
+        android:text="Joshimuddin road,Motijhil,dhaka."
+        android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:paddingTop="50dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
 
         <Button
             android:id="@+id/btn_ViewShopsOrderHistory"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:background="@drawable/layout_border"
+            android:textSize="20sp"
             android:text="View Oreder History" />
+
+        <Button
+            android:id="@+id/btn_TakeSurvey"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/layout_border"
+            android:textSize="20sp"
+            android:text="Survey" />
 
         <Button
             android:id="@+id/btn_TakeOrder"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
+            android:background="@drawable/layout_border"
+            android:textSize="20sp"
             android:text="Take Order" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerview_OrderHistory"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

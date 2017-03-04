@@ -62,7 +62,6 @@ public class TakeProductsOrder_Activity extends AppCompatActivity {
 
         productGroupView = (RecyclerView) findViewById(R.id.productGroupsView);
 
-
 //        List<Product> products = new ArrayList<>();
 //        products.add(new Product("Ghee","ঘি","900gm","৯০০ গ্রাম",878.00,"৮৭৮ টাকা",false));
 //        products.add(new Product("Ghee","ঘি","400gm","৯০০ গ্রাম",415.00,"৪১৫ টাকা",false));

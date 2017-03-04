@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -49,7 +50,8 @@ public class ShowOutletsOnMap_Activity extends FragmentActivity implements OnMap
     Button btn_visitedList;
     Button btn_notYetVisitedList;
     Button btn_ShopList;
-    Button btn_Search;
+    ImageButton btn_Search;
+    ImageButton btn_addnewshop;
 
     Toolbar toolbar;
     AccountHeader headerResult;
@@ -76,7 +78,8 @@ public class ShowOutletsOnMap_Activity extends FragmentActivity implements OnMap
         mapFragment.getMapAsync(this);
 
         btn_ShopList = (Button) findViewById(R.id.btn_ShowShopsList);
-        btn_Search = (Button) findViewById(R.id.btn_SearchShops);
+        btn_Search = (ImageButton) findViewById(R.id.btn_SearchShops);
+        btn_addnewshop = (ImageButton) findViewById(R.id.btn_addnewshop);
         btn_notYetVisitedList = (Button) findViewById(R.id.btn_ShowNotVisitedYet);
         btn_visitedList = (Button) findViewById(R.id.btn_ShowVisitedShops);
 
@@ -87,6 +90,14 @@ public class ShowOutletsOnMap_Activity extends FragmentActivity implements OnMap
                 Toast.makeText(ShowOutletsOnMap_Activity.this, "Wait", Toast.LENGTH_SHORT).show();
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        btn_addnewshop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShowOutletsOnMap_Activity.this,RegisterNewShop_Activity.class);
+                startActivity(intent);
             }
         });
     }

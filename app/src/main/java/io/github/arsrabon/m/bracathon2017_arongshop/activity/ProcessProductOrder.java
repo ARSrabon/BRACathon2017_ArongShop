@@ -58,6 +58,8 @@ public class ProcessProductOrder extends AppCompatActivity {
         btn_minus = (ImageButton) findViewById(R.id.btn_minus);
         productView = (ImageView) findViewById(R.id.img_Product);
 
+        ActionBarBadgeCountUpdater countUpdater = ActionBarBadgeCountUpdater.getInstance();
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         reference = firebaseDatabase.getReference("ProductGroupedList");
         reference.addValueEventListener(new ValueEventListener() {

@@ -1,8 +1,8 @@
 package io.github.arsrabon.m.bracathon2017_arongshop.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +44,10 @@ public class ShopsList_Activity extends AppCompatActivity implements
     Button btn_visitedList;
     Button btn_notYetVisitedList;
     Button btn_ShopsOnMap;
-    Button btn_Search;
+    ImageButton btn_Search;
+
+    ImageButton btn_newShop;
+
     RecyclerView recyclerShopListView;
 
     Toolbar toolbar;
@@ -67,6 +71,8 @@ public class ShopsList_Activity extends AppCompatActivity implements
         routeSpinner = (Spinner) findViewById(R.id.routeSpinner);
         recyclerShopListView = (RecyclerView) findViewById(R.id.recyclerview_shopsList);
 
+        btn_newShop = (ImageButton) findViewById(R.id.btn_addnewshop);
+
         btn_ShopsOnMap = (Button) findViewById(R.id.btn_ShowShopsOnMap);
 
         routeList = new ArrayList<>();
@@ -74,7 +80,7 @@ public class ShopsList_Activity extends AppCompatActivity implements
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                for(DataSnapshot snapshot : dataSnapshot.getChildren()){
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     routeList.add(snapshot.getValue(Route.class));
                 }
                 setRouteSpinner();
@@ -89,9 +95,17 @@ public class ShopsList_Activity extends AppCompatActivity implements
         btn_ShopsOnMap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ShopsList_Activity.this,ShowOutletsOnMap_Activity.class);
+                Intent intent = new Intent(ShopsList_Activity.this, ShowOutletsOnMap_Activity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        btn_newShop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ShopsList_Activity.this, RegisterNewShop_Activity.class);
+                startActivity(intent);
             }
         });
 
@@ -99,13 +113,13 @@ public class ShopsList_Activity extends AppCompatActivity implements
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(ShopsList_Activity.this,MenuActivity.class);
+        Intent intent = new Intent(ShopsList_Activity.this, MenuActivity.class);
         startActivity(intent);
         finish();
     }
 
     public void setRouteSpinner() {
-        ArrayAdapter<Route> dataAdapter = new ArrayAdapter<Route>(this,R.layout.spinner_item,routeList);
+        ArrayAdapter<Route> dataAdapter = new ArrayAdapter<Route>(this, R.layout.spinner_item, routeList);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         routeSpinner.setAdapter(dataAdapter);
         routeSpinner.setOnItemSelectedListener(this);

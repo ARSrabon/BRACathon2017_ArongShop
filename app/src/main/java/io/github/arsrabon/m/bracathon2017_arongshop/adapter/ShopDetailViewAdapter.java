@@ -49,7 +49,6 @@ public class ShopDetailViewAdapter extends RecyclerView.Adapter<ShopDetailViewAd
         final ShopDetail shopDetail = shopDetailList.get(position);
 
         holder.lbl_shopName.setText(shopDetail.getShopName());
-        holder.lbl_shopOwnerName.setText(shopDetail.getKey());
         holder.lbl_shopAddress.setText(shopDetail.getAddress());
         holder.lbl_shopPosition.setText(String.valueOf(position + 1));
 

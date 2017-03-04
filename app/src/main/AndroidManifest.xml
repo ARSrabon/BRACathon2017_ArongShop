@@ -59,7 +59,13 @@
         <activity android:name=".activity.ShopsList_Activity" />
         <activity android:name=".activity.ShopDetailsView_Activity" />
         <activity android:name=".activity.TakeOrder_Activity" />
-        <activity android:name=".activity.MyPerformance_Activity"></activity>
+        <activity android:name=".activity.MyPerformance_Activity" />
+        <activity android:name=".activity.LogIn_Activity" />
+        <activity
+            android:name=".activity.RegisterNewShop_Activity"
+            android:label="@string/title_activity_register_new_shop_"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".activity.SurveyActivity"></activity>
     </application>
 
 </manifest>
