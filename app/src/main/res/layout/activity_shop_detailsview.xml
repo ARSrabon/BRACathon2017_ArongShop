@@ -23,8 +23,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:paddingTop="10dp"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
                 android:text="Shop Details"
                 android:textAlignment="center"
                 android:textColor="#FFF"
@@ -49,6 +49,7 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/lbl_shopContact"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingTop="50dp"
@@ -56,30 +57,30 @@
         android:textSize="30sp" />
 
     <TextView
-        android:paddingTop="50dp"
         android:id="@+id/lbl_ShopAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="50dp"
         android:text="Joshimuddin road,Motijhil,dhaka."
         android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="50dp"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:baselineAligned="false">
+        android:paddingTop="50dp">
 
         <Button
             android:id="@+id/btn_ViewShopsOrderHistory"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/layout_border"
-            android:textSize="20sp"
-            android:text="View Oreder History" />
+            android:text="View Oreder History"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_TakeSurvey"
@@ -89,19 +90,19 @@
             android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/layout_border"
-            android:textSize="20sp"
-            android:text="Survey" />
+            android:text="Survey"
+            android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_TakeOrder"
             android:layout_width="0dp"
             android:layout_height="70dp"
-            android:layout_marginRight="5dp"
             android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             android:layout_weight="1"
             android:background="@drawable/layout_border"
-            android:textSize="20sp"
-            android:text="Take Order" />
+            android:text="Take Order"
+            android:textSize="20sp" />
     </LinearLayout>
 
     <android.support.v7.widget.RecyclerView

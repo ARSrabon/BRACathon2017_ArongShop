@@ -24,6 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:paddingTop="10dp"
                 android:text="Menu"
                 android:textAlignment="center"
                 android:textColor="#FFF"
@@ -89,6 +90,7 @@
             android:textStyle="bold" />
 
         <Button
+            android:id="@+id/btn_productList"
             android:layout_width="0dp"
             android:layout_height="120dp"
             android:layout_marginLeft="20dp"

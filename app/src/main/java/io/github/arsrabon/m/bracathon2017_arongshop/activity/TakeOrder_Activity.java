@@ -13,6 +13,5 @@ public class TakeOrder_Activity extends AppCompatActivity {
         setContentView(R.layout.activity_take_order);
 
 
-
     }
 }

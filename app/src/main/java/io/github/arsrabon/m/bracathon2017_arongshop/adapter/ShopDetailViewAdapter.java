@@ -4,18 +4,14 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.CardView;
-import android.support.v7.widget.ContentFrameLayout;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.textservice.TextInfo;
-import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
-import java.util.StringTokenizer;
 
 import io.github.arsrabon.m.bracathon2017_arongshop.R;
 import io.github.arsrabon.m.bracathon2017_arongshop.activity.ShopDetailsView_Activity;
@@ -30,6 +26,15 @@ public class ShopDetailViewAdapter extends RecyclerView.Adapter<ShopDetailViewAd
     List<ShopDetail> shopDetailList;
     Context context;
     Activity activity;
+
+    public ShopDetailViewAdapter(List<ShopDetail> shopDetailList, Context context, String routeName) {
+        this.shopDetailList = shopDetailList;
+        this.context = context;
+        this.activity = (Activity) context;
+        this.routeName = routeName;
+    }
+
+    String routeName;
 
     public ShopDetailViewAdapter(List<ShopDetail> shopDetailList, Context context) {
         this.shopDetailList = shopDetailList;
@@ -50,15 +55,18 @@ public class ShopDetailViewAdapter extends RecyclerView.Adapter<ShopDetailViewAd
 
         holder.lbl_shopName.setText(shopDetail.getShopName());
         holder.lbl_shopAddress.setText(shopDetail.getAddress());
-        holder.lbl_shopPosition.setText(String.valueOf(position + 1));
-
-        Log.d("map", String.valueOf(shopDetail.getLatitude() + "," + shopDetail.getLongiude()));
-
-        holder.btn_visitShop.setOnClickListener(new View.OnClickListener() {
+        holder.lbl_shopOwnerName.setVisibility(View.GONE);
+        if (shopDetail.isVisited()) {
+            holder.view.setImageResource(R.drawable.notepad_g);
+        } else {
+            holder.view.setImageResource(R.drawable.notepad_r);
+        }
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(activity, ShopDetailsView_Activity.class);
-                intent.putExtra("Shopkey",shopDetail.getKey());
+                intent.putExtra("routeName", routeName);
+                intent.putExtra("ShopName", shopDetail.getKey());
                 activity.startActivity(intent);
             }
         });
@@ -69,14 +77,13 @@ public class ShopDetailViewAdapter extends RecyclerView.Adapter<ShopDetailViewAd
         return shopDetailList.size();
     }
 
-    public static class ShopDetailViewHolder extends RecyclerView.ViewHolder{
+    public static class ShopDetailViewHolder extends RecyclerView.ViewHolder {
 
         CardView cardView;
         TextView lbl_shopName;
         TextView lbl_shopOwnerName;
         TextView lbl_shopAddress;
-        TextView lbl_shopPosition;
-        Button btn_visitShop;
+        ImageView view;
 
         public ShopDetailViewHolder(View itemView) {
             super(itemView);
@@ -84,8 +91,7 @@ public class ShopDetailViewAdapter extends RecyclerView.Adapter<ShopDetailViewAd
             lbl_shopName = (TextView) itemView.findViewById(R.id.lbl_ShopName);
             lbl_shopOwnerName = (TextView) itemView.findViewById(R.id.lbl_ShopOwnerName);
             lbl_shopAddress = (TextView) itemView.findViewById(R.id.lbl_ShopAddress);
-            lbl_shopPosition = (TextView) itemView.findViewById(R.id.lbl_position);
-            btn_visitShop = (Button) itemView.findViewById(R.id.btn_visitShop);
+            view = (ImageView) itemView.findViewById(R.id.img_status);
         }
     }
 }

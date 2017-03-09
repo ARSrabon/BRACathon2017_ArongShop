@@ -65,7 +65,10 @@
             android:name=".activity.RegisterNewShop_Activity"
             android:label="@string/title_activity_register_new_shop_"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.SurveyActivity"></activity>
+        <activity android:name=".activity.SurveyActivity" />
+        <activity android:name=".activity.ProductShow_Activity" />
+        <activity android:name=".activity.ProductDetails_Activity" />
+        <activity android:name=".activity.ReportActivity"></activity>
     </application>
 
 </manifest>

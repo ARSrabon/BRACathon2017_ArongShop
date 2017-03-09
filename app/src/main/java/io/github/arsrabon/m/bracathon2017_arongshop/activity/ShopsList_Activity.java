@@ -43,6 +43,7 @@ public class ShopsList_Activity extends AppCompatActivity implements
     Spinner routeSpinner;
     Button btn_visitedList;
     Button btn_notYetVisitedList;
+    Button btn_ShowAll;
     Button btn_ShopsOnMap;
     ImageButton btn_Search;
 
@@ -74,6 +75,9 @@ public class ShopsList_Activity extends AppCompatActivity implements
         btn_newShop = (ImageButton) findViewById(R.id.btn_addnewshop);
 
         btn_ShopsOnMap = (Button) findViewById(R.id.btn_ShowShopsOnMap);
+        
+        btn_ShowAll = (Button) findViewById(R.id.btn_shopsList);
+
 
         routeList = new ArrayList<>();
 
@@ -126,13 +130,13 @@ public class ShopsList_Activity extends AppCompatActivity implements
 
     }
 
-    public void setShopsListView(List<ShopDetail> shopDetailList) {
+    public void setShopsListView(List<ShopDetail> shopDetailList,String routeName) {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         //linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL)
         recyclerShopListView.setLayoutManager(linearLayoutManager);
 
         try {
-            ShopDetailViewAdapter shopDetailViewAdapter = new ShopDetailViewAdapter(shopDetailList, ShopsList_Activity.this);
+            ShopDetailViewAdapter shopDetailViewAdapter = new ShopDetailViewAdapter(shopDetailList, ShopsList_Activity.this,routeName);
             recyclerShopListView.setAdapter(shopDetailViewAdapter);
         } catch (Exception e) {
             e.printStackTrace();
@@ -142,13 +146,17 @@ public class ShopsList_Activity extends AppCompatActivity implements
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         Route route = routeList.get(position);
-        setShopsListView(route.getShopDetailList());
+        route.getShopDetailList().get(3).setVisited(true);
+        route.getShopDetailList().get(5).setVisited(true);
+        setShopsListView(route.getShopDetailList(),route.getRouteName());
     }
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
         Route route = routeList.get(0);
-        setShopsListView(route.getShopDetailList());
+        route.getShopDetailList().get(3).setVisited(true);
+        route.getShopDetailList().get(5).setVisited(true);
+        setShopsListView(route.getShopDetailList(),route.getRouteName());
     }
 
     public void setNavDrawer() {

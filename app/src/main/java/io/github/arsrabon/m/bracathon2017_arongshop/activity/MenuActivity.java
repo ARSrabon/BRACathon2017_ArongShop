@@ -35,6 +35,7 @@ public class MenuActivity extends AppCompatActivity implements Drawer.OnDrawerIt
     Button btn_todaysShoplist;
     Button btn_TakeOrder;
     Button btn_myPerformance;
+    Button btn_productList;
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference shopReference;
@@ -95,6 +96,15 @@ public class MenuActivity extends AppCompatActivity implements Drawer.OnDrawerIt
         btn_todaysShoplist = (Button) findViewById(R.id.btn_shopsList);
         btn_TakeOrder = (Button) findViewById(R.id.btn_TakeOrder);
         btn_myPerformance = (Button) findViewById(R.id.btn_myPerformance);
+        btn_productList = (Button) findViewById(R.id.btn_productList);
+
+        btn_productList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MenuActivity.this,ProductShow_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         btn_todaysRoute.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +132,7 @@ public class MenuActivity extends AppCompatActivity implements Drawer.OnDrawerIt
         btn_TakeOrder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(MenuActivity.this,TakeOrder_Activity.class);
+                intent = new Intent(MenuActivity.this,ShopsList_Activity.class);
                 startActivity(intent);
                 finish();
             }

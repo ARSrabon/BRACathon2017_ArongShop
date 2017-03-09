@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="activity.ShowOutletsOnMap_Activity">
+    tools:context="activity.ShowOutletsOnMap_Activity"
+    android:baselineAligned="false">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -51,6 +52,7 @@
         android:layout_height="wrap_content">
 
         <Button
+            android:layout_margin="10dp"
             android:id="@+id/btn_ShowShopsList"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -60,6 +62,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -80,32 +83,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30dp">
+        android:paddingTop="10dp">
 
         <Button
             android:id="@+id/btn_ShowAllShops"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:background="@drawable/layout_border"
+            android:layout_margin="10dp"
             android:text="Show All"
             android:textSize="20sp" />
 
         <Button
             android:id="@+id/btn_ShowNotVisitedYet"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:background="@drawable/layout_border"
+            android:layout_margin="10dp"
             android:textSize="20sp"
             android:text="Not yet visited" />
 
         <Button
             android:id="@+id/btn_ShowVisitedShops"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="70dp"
             android:layout_weight="1"
             android:background="@drawable/layout_border"
+            android:layout_margin="10dp"
             android:textSize="20sp"
             android:text="Visited" />
     </LinearLayout>

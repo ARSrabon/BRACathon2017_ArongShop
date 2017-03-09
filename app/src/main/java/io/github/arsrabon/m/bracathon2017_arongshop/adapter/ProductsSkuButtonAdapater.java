@@ -62,7 +62,6 @@ public class ProductsSkuButtonAdapater extends RecyclerView.Adapter<ProductsSkuB
                 ImageButton btn_plus = (ImageButton) activity.findViewById(R.id.btn_plus);
                 ImageButton btn_minus = (ImageButton) activity.findViewById(R.id.btn_minus);
                 final EditText editText = (EditText) activity.findViewById(R.id.edt_productQuantity);
-                ShoppingCartItem item;
                 btn_plus.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

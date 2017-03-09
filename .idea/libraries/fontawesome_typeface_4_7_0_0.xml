@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="fontawesome-typeface-4.7.0.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/fontawesome-typeface/4.7.0.0/jars/classes.jar!/" />
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.mikepenz/fontawesome-typeface/4.7.0.0/res" />
+      <root url="file://$USER_HOME$/.android/build-cache/a65fa42dc1a02f3e5f75236a7d4a26de0f836298/output/res" />
+      <root url="jar://$USER_HOME$/.android/build-cache/a65fa42dc1a02f3e5f75236a7d4a26de0f836298/output/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
